@@ -19,7 +19,7 @@
       "context": [""]
     },
     {
-      "tag": "goodbye",
+      "tag": "good bye",
       "patterns": [
         "Bye",
         "See you later",
@@ -146,24 +146,33 @@
     },
     {
       "tag": "sad",
-      "patterns": ["I am very sad😞", "Iam unhappy", "Iam Low"],
+      "patterns": [
+        "I am very sad😞",
+        "I am unhappy",
+        "I am Low",
+        "I'm sad",
+        "I'm low",
+        "I'm unhappy"
+      ],
       "responses": ["Oh no my friend, Am here for you to make you feel happy"],
       "context": [""]
     },
     {
       "tag": "suprise",
-      "patterns": ["I'm suprised😲", "Iam in surprise"],
+      "patterns": ["I'm suprised😲", "I am in surprise", "I'm suprised"],
       "responses": ["So, can you tell me what made you so surprised?"],
       "context": [""]
     },
     {
       "tag": "depressed",
       "patterns": [
-        "I am very sad😞",
         "I am very depressed",
         "I am abnormal",
         "I am the unluckiest person",
-        "I don't want to live "
+        "I don't want to live ",
+        "I'm depressed ",
+        "I'm abnormal",
+        "I wanna die right now"
       ],
       "responses": [
         "I can understand everyone has their low times in life, but this is the time where you have to stand strong for yourself."
