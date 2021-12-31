@@ -11,7 +11,6 @@ import pickle
 import numpy as np
 #import text2emotion as te
 
-
 from keras.models import load_model
 model = load_model('E:\Python projects\chatbot_model.h5')
 import json

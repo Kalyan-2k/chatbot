@@ -11,7 +11,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import SGD
 import random
-import torch
+
 
 words=[]
 classes = []
@@ -19,7 +19,7 @@ documents = []
 ignore_words = ['?', '!'] 
 intents =json.load(open('E:\Python projects\chatbot\intents.json','r',encoding='utf-8'))
 
-device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 print(device)
 for intent in intents['intents']:
     for pattern in intent['patterns']:

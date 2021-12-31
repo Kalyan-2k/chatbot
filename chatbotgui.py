@@ -1,3 +1,54 @@
+import re
+#import long_responses as long
+from textblob import TextBlob    #for calculating the polarity of the input
+import speech_recognition as SRG  #for taking voice input
+import pyttsx3
+
+def sentiment(msg):
+    #print(msg)
+    if isinstance(msg, list):
+        msg=' '.join([str(x) for x in msg])
+    #print(msg)
+    text=TextBlob(msg)
+    #print(text.sentiment.polarity)
+    return text.sentiment.polarity
+
+def speechtext(voice_input):
+    engine=pyttsx3.init()
+    engine.say(voice_input)
+    engine.runAndWait()
+
+
+def getResponse(ints, intents_json):
+    tag = ints[0]['intent']
+    list_of_intents = intents_json['intents']
+    for i in list_of_intents:
+        if(i['tag']== tag):
+            result = random.choice(i['responses'])
+            break
+    return result
+
+
+def get_response(user_input):
+    user_input=user_input.lower()
+    split_message = re.split(r'\s+|[,;?!.-]\s*',user_input) #regex expression to remove all the special characters
+    response = sentiment(split_message)
+    #feature=te.get_emotion(split_message)
+    print(split_message)
+    if response<0:
+        return 'Negative'
+    elif response>0 and response<=1:
+        return 'Positive'
+    else:
+        return 'Neutral'
+
+def chatbot_response(msg):
+    ints = predict_class(msg, model)
+    print(ints)
+    print("***\n",intents)
+    res = getResponse(ints, intents)
+    return re
+
 from tkinter import *
 def send():
     msg = messageWindow.get("1.0",'end-1c').strip()
@@ -51,14 +102,14 @@ chatWindow= Text(root,bd=1,bg='black',width=50,height=10)
 chatWindow.place(x=8,y=8,height=385,width=420)
 
 #creating and placing user msg window
-messageWindow = Text(root,bg='white',width=30,height=2,bd=2,font=('calibiri',12))
+messageWindow = Text(root,bg='white',width=30,height=2,bd=4,font=('calibiri',12))
 
-messageWindow.place(x=120 ,y=400,height=60 ,width=310)
+messageWindow.place(x=6 ,y=400,height=60 ,width=310)
 
 #creating and placing submit button
 Button= Button(root ,text='Send',bg='light blue',width=12,height=5,font=('Arial',14), command = send)
 
-Button.place(x=6,y=400,height=60,width=100)
+Button.place(x=330,y=400,height=60,width=100)
 
 #creating and placing scrollbar
 scrollbar=Scrollbar(root,command=chatWindow.yview())
