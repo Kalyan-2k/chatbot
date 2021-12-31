@@ -12,7 +12,7 @@ import json
 import random
 
 lemmatizer = WordNetLemmatizer()
-model = load_model('E:\Python projects\chatbot_model.h5')
+model = load_model('E:\Python projects\chatbot\chatbot_model.h5')
 
 intents = json.load(open('E:\Python projects\chatbot\intents.json','r',encoding='utf8'))
 words = pickle.load(open('E:\Python projects\chatbot\words.pkl','rb'))
@@ -24,7 +24,6 @@ def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     # stem each word - create short form for word
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
-    print(sentence_words)
     return sentence_words
 
 
@@ -160,14 +159,14 @@ chatWindow= Text(root,bd=1,bg='black',width=50,height=10)
 chatWindow.place(x=8,y=8,height=385,width=420)
 
 #creating and placing user msg window
-messageWindow = Text(root,bg='white',width=30,height=2,bd=2,font=('calibiri',12))
+messageWindow = Text(root,bg='white',width=30,height=2,bd=4,font=('calibiri',12))
 
-messageWindow.place(x=120 ,y=400,height=60 ,width=310)
+messageWindow.place(x=6 ,y=400,height=60 ,width=310)
 
 #creating and placing submit button
 Button= Button(root ,text='Send',bg='light blue',width=12,height=5,font=('Arial',14), command = send)
 
-Button.place(x=6,y=400,height=60,width=100)
+Button.place(x=330,y=400,height=60,width=100)
 
 #creating and placing scrollbar
 scrollbar=Scrollbar(root,command=chatWindow.yview())
@@ -176,63 +175,6 @@ scrollbar.place(x=422,y=5,height=385)
 
 #running the main loop for displaying the window for chatbot
 root.mainloop()
-
-'''def message_probability(user_message, recognised_words, single_response=False, required_words=[]):
-    message_certainty = 0
-    has_required_words = True
-
-    # Counts how many words are present in each predefined message
-    for word in user_message:
-        if word in recognised_words:
-            message_certainty += 1
-
-    # Calculates the percent of recognised words in a user message
-    percentage = float(message_certainty) / float(len(recognised_words))
-
-    # Checks that the required words are in the string
-    for word in required_words:
-        if word not in user_message:
-            has_required_words = False
-            break
-
-    # Must either have the required words, or be a single response
-    if has_required_words or single_response:
-        return int(percentage * 100)
-    else:
-        return 0
-'''
-
-
-'''def check_all_messages(message):
-    highest_prob_list = {}
-
-    # Simplifies response creation / adds it to the dict
-    #def response(bot_response, list_of_words, single_response=False, required_words=[]):
-    def response(bot_response):
-        nonlocal highest_prob_list
-        highest_prob_list[bot_response] =sentiment(message)
-    response('hello')
-    print(highest_prob_list)
-    # Responses -------------------------------------------------------------------------------------------------------
-    response('Hello!', ['hello', 'hi', 'hey', 'sup', 'heyo','heya','hola'], single_response=True)
-    response('See you!', ['bye', 'goodbye' ,'see you'], single_response=True)
-    response('I\'m doing fine, and you?', ['how', 'are', 'you', 'doing'], required_words=['how'])
-    response('Okay. That\'s Great!!!',['fine'],required_words=['fine'])
-    response('You\'re welcome!', ['thank', 'thanks'], single_response=True)
-    response('Thank you! It was nice talking with you as well.', ['nice', 'talking', 'with ', 'you', 'great'], required_words=['talking'])
-    response('Good Night to you as well..',['good' ,'night'],required_words=['good' ,'night'],single_response=True)
-        # Longer responses
-    response(long.R_ADVICE, ['give', 'advice'], required_words=['can','advice'])
-    response(long.R_EATING, ['what', 'you', 'eat'], required_words=['you', 'eat'])
-
-    best_match = max(highest_prob_list, key=highest_prob_list.get)
-    #print(highest_prob_list)
-    #print(f'Best match = {best_match} | Score: {highest_prob_list[best_match]}')
-
-    return long.unknown() if highest_prob_list[best_match] < 1 else best_match
-'''
-
-
 
 # Testing the response system
 '''choice=input('How do you want to communicate with me ? text or speech : ')
