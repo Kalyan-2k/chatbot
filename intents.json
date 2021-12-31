@@ -127,7 +127,7 @@
     },
     {
       "tag": "angry",
-      "patterns": ["I'm angry😠", "Iam frustrated"],
+      "patterns": ["I'm angry😠", "I'm frustrated"],
       "responses": [""],
       "context": [""]
     },
@@ -160,9 +160,9 @@
       "tag": "depressed",
       "patterns": [
         "I am very sad😞",
-        "Iam very depressed",
-        "Iam abnormal",
-        "Iam the unluckiest person",
+        "I am very depressed",
+        "I am abnormal",
+        "I am the unluckiest person",
         "I don't want to live "
       ],
       "responses": [
@@ -172,7 +172,7 @@
     },
     {
       "tag": "fear",
-      "patterns": ["Iam scared", "I am so afraid"],
+      "patterns": ["I am scared", "I am so afraid"],
       "responses": [
         "Fear is the key for lot of failures dear. I will make you come out your fear. Tell me what you are scared of ?"
       ],
