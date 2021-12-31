@@ -95,8 +95,8 @@ def get_response(user_input):
 
 def chatbot_response(msg):
     ints = predict_class(msg, model)
-    print(ints)
-    print("***\n",intents)
+    print('\n\n',ints)
+    #print("***\n",intents)
     res = getResponse(ints, intents)
     return res
 

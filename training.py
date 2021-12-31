@@ -74,7 +74,7 @@ random.shuffle(training)
 training = np.array(training,dtype=object)
 # create train and test lists. X - patterns, Y - intents
 x_train = list(training[:,0])
-y_train = list(training[:,0])
+y_train = list(training[:,1])
 
 #test_x = list(training[:,0:])
 #test_y = list(training[:,1:])
