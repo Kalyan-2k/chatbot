@@ -12,12 +12,14 @@ import json
 import random
 
 lemmatizer = WordNetLemmatizer()
-model = load_model('E:\Python projects\chatbot\chatbot_model.h5')
-
-intents = json.load(open('E:\Python projects\chatbot\intents.json','r',encoding='utf8'))
-words = pickle.load(open('E:\Python projects\chatbot\words.pkl','rb'))
-classes = pickle.load(open('E:\Python projects\chatbot\classes.pkl','rb'))
-
+# model = load_model('E:\Python projects\chatbot\chatbot_model.h5')
+model = load_model('chatbot_model.h5')
+# intents = json.load(open('E:\Python projects\chatbot\intents.json','r',encoding='utf8'))
+intents = json.load(open('intents.json','r',encoding='utf8'))
+# words = pickle.load(open('E:\Python projects\chatbot\words.pkl','rb'))
+words = pickle.load(open('words.pkl','rb'))
+# classes = pickle.load(open('E:\Python projects\chatbot\classes.pkl','rb'))
+classes = pickle.load(open('classes.pkl','rb'))
 
 def clean_up_sentence(sentence):
     # tokenize the pattern - split words into array
